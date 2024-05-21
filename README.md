@@ -115,6 +115,10 @@ Sum: 100
 
 Keeping in mind the 4 in the line 'int result = sum(4, 10, 20, 30, 40);' is actually indicating the count of the variable arguments being passed (i.e., 4 integers: 10, 20, 30, and 40). It's not one of the values being added.
 
+TBC..
+
+- Hexidecimals brief
+
 
 
 

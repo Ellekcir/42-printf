@@ -6,7 +6,7 @@
 /*   By: rgriffit <rgriffit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:45:13 by rgriffit          #+#    #+#             */
-/*   Updated: 2024/05/21 19:05:32 by rgriffit         ###   ########.fr       */
+/*   Updated: 2024/05/22 02:17:09 by rgriffit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@
 # include <stdlib.h>
 
 // Put prototypes here 
-// void	ft_string(char *arggs, int *length);
-// int		ft_printf(const char *string, ...)
+
+int ft_printchar(char c);
+int ft_printstr(char *str);
+int ft_printnbr(int n);
+int ft_printhex(unsigned int n, char format);
+int ft_printf(const char *string, ...);
 
 #endif
