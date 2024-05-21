@@ -78,10 +78,10 @@ Basic visual example:
 int sum(int count, ...) {
     // Declare a va_list variable to hold the arguments
     va_list args;
-    // Initialize the va_list before accessing variable arguments
+    // Initialise the va_list before accessing variable arguments
     va_start(args, count);
 
-    // Initialize total to 0
+    // Initialise total to 0
     int total = 0;
     
     // Add up each integer argument using va_arg
