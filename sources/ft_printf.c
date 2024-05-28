@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rgriffit <rgriffit@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 00:12:25 by rgriffit          #+#    #+#             */
-/*   Updated: 2024/05/22 02:15:28 by rgriffit         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 // Include the header file which will have the function declarations and gives access to varous libraries
 #include "../includes/ft_printf.h"
 
@@ -23,38 +11,38 @@
 // %X: Print numbers in hexadecimal (uppercase) format.
 // %%: Print a percent sign.
 
-static int ft_check_format_specifier(va_list args, char specifier)
+static int	ft_check_format_specifier(va_list args, char specifier)
 {
-	int char_count;
+	int	count;
 
-	char_count = 0;
+	count = 0;
 	if (specifier == 'c')
-		char_count += ft_printchar(va_arg(args, int));
+		count += ft_printchar(va_arg(args, int));
 	else if (specifier == 's')
-		char_count += ft_printstr(va_arg(args, char *));
+		count += ft_printstr(va_arg(args, char *));
 	else if (specifier == 'd' || specifier == 'i')
-		char_count += ft_printnbr(va_arg(args, int));
+		count += ft_printint(va_arg(args, int));
 	else if (specifier == 'u')
-		char_count += ft_printnbr(va_arg(args, unsigned int));
+		count += ft_printunsignedint(va_arg(args, unsigned int));
 	else if (specifier == 'p')
-		char_count += ft_printhex(va_arg(args, unsigned int), 'x');
+		count += ft_printptr(va_arg(args, void *));
 	else if (specifier == 'x')
-		char_count += ft_printhex(va_arg(args, unsigned int), specifier);
+		count += ft_printhex(va_arg(args, unsigned int), specifier);
 	else if (specifier == 'X')
-		char_count += ft_printhex(va_arg(args, unsigned int), specifier);
+		count += ft_printhex(va_arg(args, unsigned int), specifier);
 	else if (specifier == '%')
-		char_count += ft_printchar('%');
-	return (char_count);
+		count += ft_printchar('%');
+	return (count);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	int i;
-	int char_count;
-	va_list args;
+	int		i;
+	int		count;
+	va_list	args;
 
 	i = 0;
-	char_count = 0;
+	count = 0;
 	if (str == 0)
 		return (0);
 	va_start(args, str);
@@ -63,16 +51,14 @@ int ft_printf(const char *str, ...)
 		if (str[i] == '%' && str[i + 1] != '\0')
 		{
 			i++;
-			//function to check if it is any of the format specifers
-			char_count += ft_check_format_specifier(args, str[i]);
+			count += ft_check_format_specifier(args, str[i]);
 		}
 		else
 		{
-			char_count += ft_printchar(str[i]);
-			//prints the character and add to the overall character count
+			count += ft_printchar(str[i]);
 		}
 		i++;
 	}
 	va_end(args);
-	return (char_count);
+	return (count);
 }

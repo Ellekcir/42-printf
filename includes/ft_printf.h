@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rgriffit <rgriffit@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 18:45:13 by rgriffit          #+#    #+#             */
-/*   Updated: 2024/05/22 02:17:09 by rgriffit         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -22,12 +11,18 @@
 // Common functions include memory management functions like malloc, calloc, realloc, free and string conversion functions like atoi.
 # include <stdlib.h>
 
-// Put prototypes here 
+# include "../libft/libft.h"
 
-int ft_printchar(char c);
-int ft_printstr(char *str);
-int ft_printnbr(int n);
-int ft_printhex(unsigned int n, char format);
-int ft_printf(const char *string, ...);
+// Prototypes
+int	ft_printchar(char c);
+int	ft_printstr(char *str);
+int	ft_printint(int n);
+int	ft_printhex(unsigned long n, char format);
+int	ft_printptr(void *p);
+int	ft_makehex(size_t p);
+int	ft_printunsignedint(unsigned int n);
+int	ft_printf(const char *string, ...);
+//void    run_tests();
+//int main();
 
 #endif
