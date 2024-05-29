@@ -67,6 +67,7 @@ To handle these functions the stdarg Library is needed (include <stdarg.h>). Thi
 | va_start| MACRO - Initialises the va_list. It must be called before any use of va_arg otherwisee your va_list (arguments) will be empty.             | `va_start(args, format);`               |
 | va_arg  | MACRO - Accesses the next argument in the va_list. You specify the type of the argument.       | `va_arg(args, char*);`<br>`va_arg(args, int);` |
 | va_end  | MACRO - Cleans up the object va_list when done. It should be called after using va_start then it is no longer usable.             | `va_end(args);`                         |
+| va_copy  | MACRO - Copies the contents of one va_list object to another, creating a new independent list. Syntax duplicates the contents of src into dest, creating a separate va_list object for further independent usage.            | `va_copy(dest, src);`                         |
 
 
 Basic visual example:
@@ -115,10 +116,19 @@ Sum: 100
 
 Keeping in mind the 4 in the line 'int result = sum(4, 10, 20, 30, 40);' is actually indicating the count of the variable arguments being passed (i.e., 4 integers: 10, 20, 30, and 40). It's not one of the values being added.
 
-TBC..
+### Introduction to Hexadecimal
 
-- Hexidecimals brief
+This was my first deep dive in what a Hexadecimal is, for those like myself that didn't know how to use it or what it is, a hexadecimal is just another numbering system like what we use on a daily basis but instead of using the just the symbols '0-9' to represent all our numbers we can use 16 symbols which are now '0-9' and continue onto 'a-f'. It will just continue on from 9, so now 10 will equal 'a', 11 will equal 'b' and so on. We generally use Hexadecimal when dealing with large values and wanting to compress them down. Memory addresses in computers are often represented in Hexadecimal. 
 
+Here's a simple explanation of the most common numbering systems:
+
+Decimal System (Base-10): This is the system we use every day, where each digit can be from 0 to 9. The place value of each digit increases by a power of 10 as you move from right to left.
+
+Binary System (Base-2): In the binary system, there are only two digits: 0 and 1. Each digit's place value increases by a power of 2 as you move from right to left. It's widely used in computing because digital devices use on/off states, which can be represented by 0s and 1s.
+
+Octal System (Base-8): The octal system uses eight digits, from 0 to 7. Each digit's place value increases by a power of 8 as you move from right to left. Octal is less common nowadays but used to be popular in computing.
+
+Hexadecimal System (Base-16): Hexadecimal uses 16 digits, from 0 to 9 and then A to F (which represent values 10 to 15). Each digit's place value increases by a power of 16 as you move from right to left. Hexadecimal is widely used in computing because it's a convenient way to represent binary values in a shorter form.
 
 
 
