@@ -1,9 +1,9 @@
-// Include the header file which will have the function declarations and gives access to varous libraries
-#include "../includes/ft_printf.h"
+// Includes the header file which will have the function declarations, and gives access to various libraries
+#include "./ft_printf.h"
 
 // Handle various conversions -
 // %c: Print a single character.
-// %s: Print a string according to the common C convention.
+// %s: Print a string.
 // %p: Print the void pointer argument in hexadecimal format.
 // %d, %i: Print integers in base 10.
 // %u: Print unsigned decimal numbers.
@@ -32,8 +32,12 @@ static int	ft_check_format_specifier(va_list args, char specifier)
 		count += ft_printhex(va_arg(args, unsigned int), specifier);
 	else if (specifier == '%')
 		count += ft_printchar('%');
+	else
+		return (-1);
 	return (count);
 }
+
+// This function will check the format specifer to determine what the return should equal whilst keeping track of the overall count of values in the string now. This is  important as the value will change the count depending on which specifer is used. The return will be the count total.
 
 int	ft_printf(const char *str, ...)
 {
@@ -43,8 +47,8 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	count = 0;
-	if (str == 0)
-		return (0);
+	if (str == NULL)
+		return (-1);
 	va_start(args, str);
 	while (str[i] != '\0')
 	{
@@ -62,3 +66,5 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
+
+// This will take a string and the 'args' given by the user. It will then check to make sure that there is a string to start off with. It will then initialise the 'args' by using va_start function, this basically gives the program ability to use the args. It will then iterate through the string by index starting at str[0],it will check if there is a % sign and if there is another character present the index following. Once will then iterate up one position check what character it is and what fromat specifier it will be to determine the function needed, and it will also add to the of the string the value of that specific return. otherwise it will continue alongg the string and the count, once this is determined it will use va_end function to end the uuse of the args and return the count. 

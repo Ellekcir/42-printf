@@ -4,13 +4,13 @@ NAME	= libftprintf.a
 # Header, Source and Object folders/files
 HEADER	= ft_printf.h
 
-SRC	= ./sources/ft_printchar.c \
-	./sources/ft_printhex.c \
-	./sources/ft_printint.c \
-	./sources/ft_printstr.c \
-	./sources/ft_printf.c \
-	./sources/ft_printptr.c \
-	./sources/ft_printunsignedint.c 
+SRC	= ft_printchar.c \
+	ft_printhex.c \
+	ft_printint.c \
+	ft_printstr.c \
+	ft_printf.c \
+	ft_printptr.c \
+	ft_printunsignedint.c 
 
 
 # Object files 
